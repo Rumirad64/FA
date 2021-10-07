@@ -16,7 +16,7 @@ int main()
 
     for (int i = 0; i < length; i++)
     {
-        //? user_input[i] is having selected char
+        //? user_input[i] has selected char
         if(i == 0) {    //?Because first char is always unique
             unique_chars[0] = user_input[0];
             top++;
@@ -38,8 +38,10 @@ int main()
         }
         found = false; //? reset
     }
-    printf("unique_chars -> %s     length -> %d \n",unique_chars , strlen(unique_chars));
-    printf("user_input -> %s       length -> %d \n",user_input ,strlen(user_input));
+    printf("%s \n",unique_chars);  //! OUTPUT
+
+    //printf("unique_chars -> %s     length -> %d \n",unique_chars , strlen(unique_chars)); //* DEBUG
+    //printf("user_input -> %s       length -> %d \n",user_input ,strlen(user_input)); //* DEBUG
 
     return 0;
 }

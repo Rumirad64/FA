@@ -18,7 +18,7 @@ int main(void)
         }
         else
         {
-            printf("You entered -> %d \n", numOfPass);
+            //printf("You entered -> %d \n", numOfPass); //! DEBUG INFO
             flag = false;
         }
     }
@@ -26,7 +26,7 @@ int main(void)
     int row = numOfPass;
     const int col = 13;
     char grid[row][col]; //! Create 2d array for store inputs
-    printf("Grid size: %d x %d \n", col, row);
+    //printf("Grid size: %d x %d \n", col, row); //! DEBUG INFO
 
     for (int i = 0; i < row; i++) //? erase 2d arr using (-) symbol
     {
@@ -41,7 +41,7 @@ int main(void)
         printf("Input the strings one by one : ");
         char input[13];
         scanf("%s", input);
-        printf("Length of string is -> %zu \n", strlen(input));
+        //printf("Length of string is -> %zu \n", strlen(input)); //! DEBUG INFO
 
         int input_length = strlen(input);
 
@@ -54,7 +54,7 @@ int main(void)
         }
         else
         { //odd
-            printf("%s is odd length and %d characters \n", input, input_length);
+            //printf("%s is odd length and %d characters \n", input, input_length); //! DEBUG INFO
             for (int j = 0; j < input_length; j++)
             {
                 grid[i][j] = input[j];
@@ -67,9 +67,9 @@ int main(void)
     {
         for (int j = 0; j < col; j++)
         {
-            printf("%c ", grid[i][j]);
+            //printf("%c ", grid[i][j]); //! DEBUG INFO
         }
-        printf("\n");
+        //printf("\n"); //! DEBUG INFO
     }
     int line = 0;
     while (line != row)
@@ -83,10 +83,10 @@ int main(void)
             }
             selected[j] = grid[line][j];
         } 
-        printf("Selected ->  %s \n", selected);
+        //printf("Selected ->  %s \n", selected); //! DEBUG INFO
         strrev(selected);
         int char_len = strlen(selected);
-        printf("Length of string is -> %zu \n", char_len);
+        //printf("Length of string is -> %zu \n", char_len); //! DEBUG INFO
 
         for (int i = 0; i < row; i++) //! COMPARE SELECTED STRING TO EACH STRINGS ONE BY ONE
         {
@@ -99,30 +99,31 @@ int main(void)
                 
                 
             }
-            printf("To compare ->  %s \n", to_compare);
+            //printf("To compare ->  %s \n", to_compare); //! DEBUG INFO
             
             int matching_count = 0; // ?keep track matching chars
             for (int k = 0; k < char_len; k++) //? compare char one by one
             {
-                printf("Comparing selected -> %c comparer -> %c \n",selected[k] , to_compare[k]);
+                //printf("Comparing selected -> %c comparer -> %c \n",selected[k] , to_compare[k]); //! DEBUG INFO
                 if(selected[k] == to_compare[k])
                 {
-                    printf("Matched selected -> %c comparer -> %c \n",selected[k] , to_compare[k]);
+                    //printf("Matched selected -> %c comparer -> %c \n",selected[k] , to_compare[k]); //! DEBUG INFO
                     matching_count++;
                 }
             }
             if(matching_count == char_len) //! IF match all chars 
             {
-                printf("MATCHED ! AND FOUND ------> Selected %s toCompare %s \n",selected,to_compare);
-                printf("LENGTH IS %d , MIDDLE CHAR IS %c \n",char_len,selected[char_len/2]);
+                //ntf("MATCHED ! AND FOUND ------> Selected %s toCompare %s \n",selected,to_compare); //! DEBUG INFO
+                //printf("LENGTH IS %d , MIDDLE CHAR IS %c \n",char_len,selected[char_len/2]); //! DEBUG INFO
+                printf(" %d  %c \n",char_len,selected[char_len/2]); //! OUTPUT
                 return 0;
             }
             //printf("Matched Selected %s toCompare %s \n",selected,to_compare);
-            puts("for i ++");
+            //puts("for i ++"); //! DEBUG INFO
         }
         line++;
-        puts("While ++");
-        //break;
+        //puts("While ++"); //! DEBUG INFO
     }
+    puts("Could not found any matching string");
     return 0;
 }

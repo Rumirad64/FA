@@ -8,6 +8,12 @@ int main()
     printf("Enter the length of the string :");
     scanf("%d", &length);
     printf("length is -> %d \n",length);
+    if(length < 1 || length > 100)
+    {
+        printf("Invalid length !");
+        return 0;
+    }
+
     char str_s[length];
     char str_t[length];
 
@@ -20,7 +26,7 @@ int main()
     unsigned int iteration_count = 0;
     while (strcmp(str_t , str_s) != 0) //? iterate until equal
     {
-        printf("str_t ->  %s \n",str_s);
+        //printf("str_t ->  %s \n",str_s); //! DEBUG INFO
         char first = str_s[0];
         for (int i = 0; i < length; i++)
         {
@@ -35,7 +41,9 @@ int main()
             return 0;
         }
     }
-    printf("str_s -> %s \t\t str_t %s \n",str_s,str_t);
-    printf("Number of iteration -> %d \n",iteration_count);
+    //printf("str_s -> %s \t\t str_t %s \n",str_s,str_t); //! DEBUG INFO
+    //printf("Number of iteration -> %d \n",iteration_count); //! DEBUG INFO
+
+    printf(" %d \n",iteration_count); //! OUTPUT
     return 0;
 }
