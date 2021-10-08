@@ -1,49 +1,41 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
 int main()
 {
-    unsigned int length = 0;
+    int N;
     printf("Enter the length of the string :");
-    scanf("%d", &length);
-    printf("length is -> %d \n",length);
-    if(length < 1 || length > 100)
-    {
+    scanf("%d", &N);
+    if(N < 1 || N > 100){ //length constraint
         printf("Invalid length !");
         return 0;
     }
 
-    char str_s[length];
-    char str_t[length];
+    char S[N];
+    char T[N];
 
     printf("Enter string S : ");
-    scanf("%s", str_s); 
+    scanf("%s", S); //converting string
 
     printf("Enter string T : ");
-    scanf("%s", str_t);//? remains same
+    scanf("%s", T); //keeping this string same
 
-    unsigned int iteration_count = 0;
-    while (strcmp(str_t , str_s) != 0) //? iterate until equal
-    {
-        //printf("str_t ->  %s \n",str_s); //! DEBUG INFO
-        char first = str_s[0];
-        for (int i = 0; i < length; i++)
-        {
-            str_s[i] = str_s[i + 1];
+    int count = 0;
+    while (strcmp(T , S) != 0) { //until the strings become same
+        char first = S[0];  //this character is used to append to the last
+        for (int i = 0; i < N; i++){
+            S[i] = S[i + 1];
         }
-        str_s[length - 1] = first;
-        iteration_count++;
+        S[N - 1] = first;
+        count++;
 
-        if(iteration_count > length)
-        {
-            printf("Cant convert the string S into T \n");
+        if(count > N){
+            printf("Can't convert the string S into T\n");
             return 0;
         }
     }
-    //printf("str_s -> %s \t\t str_t %s \n",str_s,str_t); //! DEBUG INFO
-    //printf("Number of iteration -> %d \n",iteration_count); //! DEBUG INFO
 
-    printf(" %d \n",iteration_count); //! OUTPUT
+    printf("%d\n",count);
     return 0;
 }
+
